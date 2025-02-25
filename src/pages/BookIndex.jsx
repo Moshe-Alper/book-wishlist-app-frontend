@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadBooks, addBook, updateBook, removeBook, addBookMsg } from '../store/actions/book.actions'
+import { loadBooks, addBook, updateBook, removeBook } from '../store/actions/book.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { bookService } from '../services/book/'
