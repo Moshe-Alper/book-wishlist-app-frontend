@@ -51,3 +51,9 @@ export function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+export async function readJsonFile(path) {
+    const response = await fetch(path)
+    if (!response.ok) throw new Error(`Failed to fetch ${path}`)
+    return response.json()
+}

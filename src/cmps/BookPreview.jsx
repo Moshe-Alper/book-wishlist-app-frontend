@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom'
-
 export function BookPreview({ book }) {
     return <article className="preview">
         <header>
-            <Link to={`/book/${book._id}`}>{book.vendor}</Link>
+            <h1>{book.title}</h1>
         </header>
-
-        <p>Speed: <span>{book.speed.toLocaleString()} Km/h</span></p>
-        {book.owner && <p>Owner: <span>{book.owner.fullname}</span></p>}
+        <h2>{book.author}</h2>
+        <p>{book.description}</p>
+        <h3>Rating: <span>{book.rating}</span></h3>
+        <h4>Price: <span>{book.price}</span></h4>
         
+
     </article>
 }

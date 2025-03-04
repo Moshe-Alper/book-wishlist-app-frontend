@@ -7,8 +7,8 @@ import { bookService as remote } from './book.service.remote'
 
 function getEmptyBook() {
 	return {
-		vendor: makeId(),
-		speed: getRandomIntInclusive(80, 240),
+		title: makeId(),
+		rating: getRandomIntInclusive(80, 240),
 		msgs: [],
 	}
 }
@@ -16,7 +16,7 @@ function getEmptyBook() {
 function getDefaultFilter() {
     return {
         txt: '',
-        minSpeed: '',
+        minRating: '',
         sortField: '',
         sortDir: '',
     }

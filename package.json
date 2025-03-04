@@ -3,18 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "dev:remote": "npm run dev",
-    "dev:remote:mac": "npm run dev",
-    
-    "dev:local": "set VITE_LOCAL=true&&vite",
-    "dev:local:mac": "VITE_LOCAL=true nodemon --exec vite",
-    
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite",
+  "dev:local": "set VITE_LOCAL=true&& vite",
+  "dev:local:mac": "VITE_LOCAL=true nodemon --exec vite",
+  "build": "vite build",
+  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview"
+},
   "dependencies": {
     "axios": "^1.5.0",
     "react": "^18.2.0",

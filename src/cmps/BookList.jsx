@@ -1,27 +1,34 @@
-import { userService } from '../services/user'
+import { useState } from 'react'
 import { BookPreview } from './BookPreview'
 
+
 export function BookList({ books, onRemoveBook, onUpdateBook }) {
-    
-    function shouldShowActionBtns(book) {
-        const user = userService.getLoggedinUser()
-        
-        if (!user) return false
-        if (user.isAdmin) return true
-        return book.owner?._id === user._id
+    const [currentPage, setCurrentPage] = useState(0)
+
+
+    function handleNextPage() {
+        if (currentPage < books.length - 1) {
+            setCurrentPage(prevPage => prevPage + 1)
+        }
     }
 
+    function handlePrevPage() {
+        if (currentPage > 0 ) {
+            setCurrentPage(prevPage => prevPage - 1)
+        }
+    }
+
+    if (!books || books.length === 0) return <div>No books available</div>
+
+    const currentBook = books[currentPage]
+    if (!currentBook) return <div>Loading...</div>
+    
     return <section>
         <ul className="list">
-            {books.map(book =>
-                <li key={book._id}>
-                    <BookPreview book={book}/>
-                    {shouldShowActionBtns(book) && <div className="actions">
-                        <button onClick={() => onUpdateBook(book)}>Edit</button>
-                        <button onClick={() => onRemoveBook(book._id)}>x</button>
-                    </div>}
-                </li>)
-            }
+            
+                <li>
+                    <BookPreview book={currentBook}/>
+                </li>
         </ul>
     </section>
 }

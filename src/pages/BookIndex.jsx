@@ -30,7 +30,7 @@ export function BookIndex() {
 
     async function onAddBook() {
         const book = bookService.getEmptyBook()
-        book.vendor = prompt('Vendor?')
+        book.title = prompt('Title?')
         try {
             const savedBook = await addBook(book)
             showSuccessMsg(`Book added (id: ${savedBook._id})`)
@@ -40,13 +40,13 @@ export function BookIndex() {
     }
 
     async function onUpdateBook(book) {
-        const speed = +prompt('New speed?', book.speed)
-        if(speed === 0 || speed === book.speed) return
+        const rating = +prompt('New rating?', book.rating)
+        if(rating === 0 || rating === book.rating) return
 
-        const bookToSave = { ...book, speed }
+        const bookToSave = { ...book, rating }
         try {
             const savedBook = await updateBook(bookToSave)
-            showSuccessMsg(`Book updated, new speed: ${savedBook.speed}`)
+            showSuccessMsg(`Book updated, new rating: ${savedBook.rating}`)
         } catch (err) {
             showErrorMsg('Cannot update book')
         }        

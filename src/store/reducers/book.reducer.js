@@ -44,8 +44,8 @@ export function bookReducer(state = initialState, action) {
 
 function unitTestReducer() {
     var state = initialState
-    const book1 = { _id: 'b101', vendor: 'Book ' + parseInt(Math.random() * 10), msgs: [] }
-    const book2 = { _id: 'b102', vendor: 'Book ' + parseInt(Math.random() * 10), msgs: [] }
+    const book1 = { _id: 'b101', title: 'Book ' + parseInt(Math.random() * 10), msgs: [] }
+    const book2 = { _id: 'b102', title: 'Book ' + parseInt(Math.random() * 10), msgs: [] }
 
     state = bookReducer(state, { type: SET_BOOKS, books: [book1] })
     console.log('After SET_BOOKS:', state)
@@ -53,7 +53,7 @@ function unitTestReducer() {
     state = bookReducer(state, { type: ADD_BOOK, book: book2 })
     console.log('After ADD_BOOK:', state)
 
-    state = bookReducer(state, { type: UPDATE_BOOK, book: { ...book2, vendor: 'Good' } })
+    state = bookReducer(state, { type: UPDATE_BOOK, book: { ...book2, title: 'Good' } })
     console.log('After UPDATE_BOOK:', state)
 
     state = bookReducer(state, { type: REMOVE_BOOK, bookId: book2._id })
