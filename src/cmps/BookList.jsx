@@ -13,7 +13,7 @@ export function BookList({ books, onRemoveBook, onUpdateBook }) {
     }
 
     function handlePrevPage() {
-        if (currentPage > 0 ) {
+        if (currentPage > 0) {
             setCurrentPage(prevPage => prevPage - 1)
         }
     }
@@ -22,13 +22,32 @@ export function BookList({ books, onRemoveBook, onUpdateBook }) {
 
     const currentBook = books[currentPage]
     if (!currentBook) return <div>Loading...</div>
-    
-    return <section>
-        <ul className="list">
-            
-                <li>
-                    <BookPreview book={currentBook}/>
-                </li>
-        </ul>
-    </section>
+
+    return (
+        <section className="book-list">
+            <section className="book-preview">
+                <button
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 0}
+                    className="nav-button prev-button"
+                >
+                    &lt;
+                </button>
+
+                <BookPreview book={currentBook} />
+                <button
+                    onClick={handleNextPage}
+                    disabled={currentPage === books.length - 1}
+                    className="nav-button next-button"
+                >
+                    &gt;
+                </button>
+            </section>
+
+            <section className="wish-list">
+                <h2>Wish list</h2>
+            </section>
+
+        </section>
+    )
 }

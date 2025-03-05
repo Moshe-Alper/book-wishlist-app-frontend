@@ -1,22 +1,55 @@
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: .5em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 20px;
+    background-color: lightgrey;
 
-    li {
+    .book-preview {
+        grid-column: 1;
         display: grid;
-        grid-template-columns: max-content auto;
-        padding: .5em;
-        background-color: $clr2;
+        grid-template-columns: auto 1fr auto;
 
-        color: $clr6;
+        article.preview {
+            background-color: whitesmoke;
+            padding: 20px;
+            color: black;
 
-        .actions {
-            justify-self: end;
+            header {
+                border-bottom: 2px solid black; 
+                margin-block-end: 0.5rem;
 
-            button {
-                padding: .3em .5em;
+            }
+
+            h1 {
+                font-size: 1rem;               
+
+            }
+
+            h2 {
+                font-size: 1rem;    
+                color: blue;           
+            }
+
+            p {
+                font-size: 1rem;
+                margin-block-end: 0.5rem;
+            }
+
+            h3 {
+                font-size: 0.85rem;
             }
         }
+
+        button {
+            background-color: transparent;
+            color: gray;
+        }
+    }
+
+    .book-wishlist {
+        grid-column: 2;
     }
 }
