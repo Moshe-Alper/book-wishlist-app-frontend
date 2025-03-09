@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { BookPreview } from './BookPreview'
+import { BookFilter } from './BookFilter'
 
 
-export function BookList({ books, onRemoveBook, onUpdateBook }) {
+export function BookList({ books, onUpdateBook, filterBy, setFilterBy }) {
     const [currentPage, setCurrentPage] = useState(0)
 
 
@@ -16,6 +17,10 @@ export function BookList({ books, onRemoveBook, onUpdateBook }) {
         if (currentPage > 0) {
             setCurrentPage(prevPage => prevPage - 1)
         }
+    }
+
+    function handleToggleWish(book) {
+        onUpdateBook({ ...book, isWished: !book.isWished });
     }
 
     if (!books || books.length === 0) return <div>No books available</div>
@@ -34,19 +39,36 @@ export function BookList({ books, onRemoveBook, onUpdateBook }) {
                     &lt;
                 </button>
 
-                <BookPreview book={currentBook} />
+                <BookPreview 
+                book={currentBook} 
+                onToggleWish={handleToggleWish}
+                />
                 <button
                     onClick={handleNextPage}
                     disabled={currentPage === books.length - 1}
                     className="nav-button next-button"
+
                 >
                     &gt;
                 </button>
             </section>
 
             <section className="wish-list">
-                <h2>Wish list</h2>
-            </section>
+            <div className="wishlisted-books">
+                <BookFilter 
+                filterBy={filterBy} 
+                setFilterBy={setFilterBy} 
+                />
+                
+                {books
+                    .filter(book => book.isWished)
+                    .map(book => (
+                        <li key={book._id}>
+                            <h1>{book.title}</h1>
+                            </li>
+                    ))}
+            </div>
+        </section>
 
         </section>
     )

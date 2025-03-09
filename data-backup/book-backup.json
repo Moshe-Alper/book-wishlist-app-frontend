@@ -1,59 +1,66 @@
 [
-    {
-      "title": "The Silent Patient",
-      "author": "Alex Michaelides",
-      "rating": 5,
-      "price": 12.99,
-      "description": "A psychological thriller about a woman’s act of violence against her husband—and the therapist obsessed with uncovering her motive."
-    },
-    {
-      "title": "Where the Crawdads Sing",
-      "author": "Delia Owens",
-      "rating": 4,
-      "price": 10.49,
-      "description": "A coming-of-age mystery about a young girl growing up alone in the marshes of North Carolina."
-    },
-    {
-      "title": "Atomic Habits",
-      "author": "James Clear",
-      "rating": 5,
-      "price": 15.99,
-      "description": "A guide to building good habits, breaking bad ones, and mastering the tiny behaviors that lead to remarkable results."
-    },
-    {
-      "title": "Project Hail Mary",
-      "author": "Andy Weir",
-      "rating": 5,
-      "price": 18.99,
-      "description": "A lone astronaut must save humanity while recovering from amnesia in this gripping sci-fi thriller."
-    },
-    {
-      "title": "The Midnight Library",
-      "author": "Matt Haig",
-      "rating": 4,
-      "price": 13.79,
-      "description": "A woman trapped between life and death discovers a library filled with books that allow her to experience different versions of her life."
-    },
-    {
-      "title": "Dune",
-      "author": "Frank Herbert",
-      "rating": 5,
-      "price": 14.99,
-      "description": "A sci-fi epic set in a distant future, revolving around power, politics, and a desert planet called Arrakis."
-    },
-    {
-      "title": "Circe",
-      "author": "Madeline Miller",
-      "rating": 4,
-      "price": 11.99,
-      "description": "A fresh take on Greek mythology, following the journey of Circe, a daughter of the Titans with a talent for witchcraft."
-    },
-    {
-      "title": "The Alchemist",
-      "author": "Paulo Coelho",
-      "rating": 5,
-      "price": 9.99,
-      "description": "A philosophical novel about a young shepherd searching for his personal legend and the meaning of life."
-    }
-  ]
-  
+  {
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "rating": 1,
+    "price": 12.99,
+    "isWished": true,
+    "description": "A psychological thriller about a woman’s act of violence against her husband—and the therapist obsessed with uncovering her motive."
+  },
+  {
+    "title": "Where the Crawdads Sing",
+    "author": "Delia Owens",
+    "rating": 4,
+    "price": 10.49,
+    "isWished": false,
+    "description": "A coming-of-age mystery about a young girl growing up alone in the marshes of North Carolina."
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "rating": 5,
+    "price": 15.99,
+    "isWished": true,
+    "description": "A guide to building good habits, breaking bad ones, and mastering the tiny behaviors that lead to remarkable results."
+  },
+  {
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "rating": 5,
+    "price": 18.99,
+    "isWished": false,
+    "description": "A lone astronaut must save humanity while recovering from amnesia in this gripping sci-fi thriller."
+  },
+  {
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "rating": 4,
+    "price": 13.79,
+    "isWished": false,
+    "description": "A woman trapped between life and death discovers a library filled with books that allow her to experience different versions of her life."
+  },
+  {
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "rating": 5,
+    "price": 14.99,
+    "isWished": false,
+    "description": "A sci-fi epic set in a distant future, revolving around power, politics, and a desert planet called Arrakis."
+  },
+  {
+    "title": "Circe",
+    "author": "Madeline Miller",
+    "rating": 4,
+    "price": 11.99,
+    "isWished": true,
+    "description": "A fresh take on Greek mythology, following the journey of Circe, a daughter of the Titans with a talent for witchcraft."
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "rating": 5,
+    "price": 9.99,
+    "isWished": false,
+    "description": "A philosophical novel about a young shepherd searching for his personal legend and the meaning of life."
+  }
+]

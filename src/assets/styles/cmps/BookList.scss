@@ -46,10 +46,41 @@
         button {
             background-color: transparent;
             color: gray;
+            font-size: 1.5rem;
+        
+            &:disabled {
+                opacity: 0; 
+            }
         }
     }
 
-    .book-wishlist {
+    .wish-list {
         grid-column: 2;
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 2;
+        
+        .wishlisted-books {
+            display: grid;
+            grid-template-columns: subgrid;
+            padding-inline: 2rem;
+            gap: 1rem;
+            height: fit-content;
+
+            li {
+                list-style: none;
+                background-color: whitesmoke;
+                align-items: center;
+                display: grid;
+                place-items: center;
+                min-height: 3rem;
+
+                h1 {
+                    margin: auto;
+                    font-size: 1rem;
+                    color: black;
+                }
+            }
+        }
     }
 }

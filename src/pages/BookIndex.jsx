@@ -8,7 +8,6 @@ import { bookService } from '../services/book/'
 import { userService } from '../services/user'
 
 import { BookList } from '../cmps/BookList'
-import { BookFilter } from '../cmps/BookFilter'
 
 export function BookIndex() {
 
@@ -40,13 +39,12 @@ export function BookIndex() {
     }
 
     async function onUpdateBook(book) {
-        const rating = +prompt('New rating?', book.rating)
-        if(rating === 0 || rating === book.rating) return
-
-        const bookToSave = { ...book, rating }
+        const isWished = !book.isWished
+        const bookToSave = { ...book, isWished }
+    
         try {
             const savedBook = await updateBook(bookToSave)
-            showSuccessMsg(`Book updated, new rating: ${savedBook.rating}`)
+            showSuccessMsg(`Book updated, wish status: ${isWished ? 'Wished' : 'Not wished'}`)
         } catch (err) {
             showErrorMsg('Cannot update book')
         }        
@@ -58,11 +56,12 @@ export function BookIndex() {
                 <h2>Books</h2>
                 {userService.getLoggedinUser() && <button onClick={onAddBook}>Add a Book</button>}
             </header>
-            <BookFilter filterBy={filterBy} setFilterBy={setFilterBy} />
             <BookList 
                 books={books}
-                onRemoveBook={onRemoveBook} 
-                onUpdateBook={onUpdateBook}/>
+                onUpdateBook={onUpdateBook}
+                filterBy={filterBy} 
+                setFilterBy={setFilterBy}
+                />
         </main>
     )
 }

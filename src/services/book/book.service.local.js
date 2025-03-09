@@ -16,7 +16,7 @@ export const bookService = {
 window.cs = bookService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { xtxt: '', price: 0 }) {
     // var books = await storageService.query(STORAGE_KEY)
     let books = await booksFromJson
     const { txt, minRating, maxPrice, sortField, sortDir } = filterBy
@@ -45,7 +45,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
             (book1[sortField] - book2[sortField]) * +sortDir)
     }
     
-    books = books.map(({ _id, title, price, rating, author, description }) => ({ _id, title, price, rating, author, description }))
+    books = books.map(({ _id, title, price, rating, author, description, isWished }) => ({ _id, title, price, rating, author, description, isWished }))
     return books
 }
 
@@ -59,25 +59,39 @@ async function remove(bookId) {
 }
 
 async function save(book) {
-    var savedBook
+    console.log('🚀 book in service', book)
+
+    // Ensure books are loaded
+    let books = await booksFromJson
+
+    let savedBook
     if (book._id) {
-        const bookToSave = {
-            _id: book._id,
-            price: book.price,
-            rating: book.rating,
+        // Update existing book and toggle `isWished`
+        const bookIdx = books.findIndex(b => b._id === book._id)
+        if (bookIdx !== -1) {
+            // Toggle the `isWished` value
+            const updatedBook = {
+                ...books[bookIdx],
+                isWished: !books[bookIdx].isWished // Toggle value
+            }
+            books[bookIdx] = updatedBook
+            savedBook = updatedBook
         }
-        savedBook = await storageService.put(STORAGE_KEY, bookToSave)
     } else {
+        // Create new book
         const bookToSave = {
+            _id: makeId(),
             title: book.title,
             price: book.price,
             rating: book.rating,
-            // Later, author is set by the backend
+            isWished: book.isWished,
             author: userService.getLoggedinUser(),
             msgs: []
         }
-        savedBook = await storageService.post(STORAGE_KEY, bookToSave)
+        books.push(bookToSave)
+        savedBook = bookToSave
     }
+
     return savedBook
 }
 

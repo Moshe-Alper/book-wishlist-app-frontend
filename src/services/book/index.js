@@ -17,6 +17,7 @@ function getDefaultFilter() {
     return {
         txt: '',
         minRating: '',
+        minPrice:'',
         sortField: '',
         sortDir: '',
     }
